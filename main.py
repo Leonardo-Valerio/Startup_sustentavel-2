@@ -56,8 +56,10 @@ while True:
 
     elif opcao == 2:
         cabecalho(menu[1])
+        materiais = validar_opcoes_sustentaveis('digite o material que deseja saber seus possiveis substitutos sustentáveis: ')
     elif opcao == 3:
         cabecalho(menu[2])
+        tipos_de_atividades = validar_atividade('Digite a atividade que deseja saber mais: ',atividades())
     elif opcao == 4:
         cabecalho(menu[3])
     elif opcao == 5:
