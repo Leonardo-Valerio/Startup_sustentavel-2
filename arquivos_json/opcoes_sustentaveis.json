@@ -1,0 +1,37 @@
+{
+    "plásticos descartáveis": {
+        "sacolas de plástico": ["sacolas reutilizáveis de pano", "sacolas de juta", "sacolas reutilizáveis de material reciclado"],
+        "garrafas de plástico": ["garrafas de água reutilizáveis", "garrafas de vidro", "garrafas de metal"],
+        "canudos de plástico": ["canudos de metal", "canudos de papel", "canudos de bambu"],
+        "talheres de plástico": ["talheres de bambu", "talheres de metal", "talheres compostáveis"],
+        "copos descartáveis": ["copos reutilizáveis", "copos de papel", "copos de vidro"]
+    },
+    "resíduos tóxicos": {
+        "pontas de cigarro": ["cigarros com filtros biodegradáveis", "vaporizadores", "uso de cinzeiros portáteis"],
+        "pilhas e baterias": ["baterias recarregáveis", " baterias solares", "pilhas de sal"],
+        "pesticidas e herbicidas": ["opções orgânicas", "opções caseiras", "métodos mecânicos"],
+        "tintas e solventes": ["tintas à base de água", "tintas de cal", "tintas orgânicas"],
+        "medicamentos vencidos": ["programas de recolhimento de medicamentos", "devolução em farmácias", "descarte controlado"]
+    },
+    "resíduos eletrônicos": {
+        "eletrônicos descartados": ["dispositivos recondicionados", "doações", " trocas"],
+        "lâmpadas fluorescentes": ["lâmpadas led", "lâmpadas solares", "lâmpadas de halogéneo com eficiência energética"],
+        "cartuchos de tinta": ["cartuchos recarregáveis", "programas de devolução", "cartuchos de tinta eco-friendly"],
+        "cabos e fios": ["cabos feitos de materiais reciclados", " cabos reutilizáveis", "organizadores de cabo reutilizáveis"],
+        "telefones celulares velhos": ["programas de reciclagem de celular", "trocas", "doações"]
+    },
+    "produtos de higiene e saúde": {
+        "fraldas descartáveis": ["fraldas de pano reutilizáveis", "fraldas biodegradáveis", "fraldas de bambu"],
+        "produtos de higiene pessoal": ["produtos sólidos (ex: xampu em barra)", "produtos naturais", "produtos em embalagens recicláveis"],
+        "absorventes descartáveis": ["copo menstrual", "absorventes reutilizáveis", "calcinhas absorventes"],
+        "cotonetes de plástico": ["cotonetes de bambu", "cotonetes de papel", "hastes flexíveis reutilizáveis"],
+        "desodorantes em spray": ["desodorantes roll-on", "desodorantes naturais", "desodorantes em barra"]
+    },
+    "materiais e embalagens": {
+        "isopor": ["alternativas à base de amido", "embalagens de fibra natural", "embalagens compostáveis"],
+        "embalagens de alimentos": ["embalagens de vidro", "embalagens de papel", "embalagens reutilizáveis"],
+        "filtros de café": ["filtros de pano", "prensa francesa", "filtros de metal"],
+        "tampas de plástico": ["tampas de metal reutilizáveis", "tampas de silicone", "tampas de cortiça"],
+        "caixas de pizza sujas": ["caixas compostáveis", "caixas de papelão reciclável", "embalagens reutilizáveis"]
+    }
+}

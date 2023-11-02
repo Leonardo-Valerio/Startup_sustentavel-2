@@ -1,4 +1,6 @@
+import json
 import requests
+import os
 
 def linha():
     print('-' * 100)
@@ -20,27 +22,49 @@ def validar_int(n):
             print('Digite um número válido!!!')
         else:
             return num
-def cadastrar(nome, senha, cep):
+
+
+def fazer_cadastro(nome, senha, cep):
+    nome_arquivo = './arquivo_cadastros/cadastros.json'
+    novo_usuario = {
+        "nome": nome,
+        "senha": senha,
+        "cep": cep["cep"],
+        "rua": cep["logradouro"],
+        "numero": cep["numero"],
+        "tentativas": 3
+    }
+
+    dados = []
+
     try:
-        with open('./arquivo_cadastros/cadastros.txt', 'a', encoding='utf-8') as arquivo:
-            arquivo.write(f'{nome};{senha};{cep["cep"]};{cep["logradouro"]};{cep["numero"]}\n')
-        cabecalho("Cadastro realizado com sucesso.")
-    except Exception as e:
-        print(f"Ocorreu um erro ao realizar o cadastro: {e}")
-def validar_nome(nome):
+        if os.path.exists(nome_arquivo) and os.path.getsize(nome_arquivo) > 0:
+            with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
+                dados = json.load(arquivo)
+
+        dados.append(novo_usuario)
+
+        with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
+            json.dump(dados, arquivo, indent=4)
+        cabecalho('CADASTRO REALIZADO COM SUCESSO!')
+    except IOError as e:
+        print(f'ERRO: {e}')
+
+
+
+def validar_user(nome):
     try:
-        with open('./arquivo_cadastros/cadastros.txt', 'r') as arquivo:
-            dados = arquivo.readlines()
-    except Exception as e:
-        print(f'Ocorreu um erro: {e}')
+        with open('./arquivo_cadastros/cadastros.json', 'r', encoding='utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except IOError as e:
+        print(f'ERRO: {e}')
     else:
         while True:
             liberar_usuario = True
             name = input(nome)
             if name.isalpha() and len(name) >= 3:
-                for i in dados:
-                    nome_existente = i.strip().split(';')[0]
-                    if name == nome_existente:
+                for usuario in dados:
+                    if name == usuario["nome"]:
                         print('ERRO, usuário já existente, digite outro')
                         liberar_usuario = False
                         break
@@ -75,18 +99,45 @@ def encontrar_cep(num_cep, num_casa):
             print(f'Ocorreu um erro: {e}')
 
 
-def login(name,password):
+def fazer_login(name,password):
     try:
-        with open('./arquivo_cadastros/cadastros.txt', 'r') as arquivo:
-            dados = arquivo.readlines()
-    except Exception as e:
-        print(f'Ocorreu um erro: {e}')
+        with open('./arquivo_cadastros/cadastros.json', 'r', encoding='utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except IOError as e:
+        print(f'ERRO: {e}')
     else:
-        nome = input(name).lower()
-        senha = input(password).lower()
-        for i in dados:
-            linha = i.strip().split(';')
-            if linha[0] == nome and linha[1] == senha:
-                return [nome,senha]
-        print('Nome ou senha incorretos!')
-        return []
+        while True:
+            nome = input(name).lower()
+            senha = input(password).lower()
+            for i in dados:
+                if nome == i["nome"] and senha == i["senha"]:
+                    return [nome,senha]
+            print('Nome ou senha incorretos!')
+            return []
+
+
+def cadastro(menu_cadastro):
+    while True:
+        linha()
+        exibir_menu(menu_cadastro)
+        linha()
+        opcao = validar_int('Digite a opção que deseja: ')
+        if opcao == 1:
+            cabecalho(menu_cadastro[0])
+            novo_nome = validar_user('digite seu nome: ').lower()
+            nova_senha = validar_senha('crie sua senha: ').lower()
+            numero_casa = validar_int('digite o número da sua residência: ')
+            cep = encontrar_cep('digite o seu CEP (apenas números nesse campo): ', numero_casa)
+            fazer_cadastro(novo_nome,nova_senha,cep)
+        elif opcao == 2:
+            cabecalho(menu_cadastro[1])
+            acesso = fazer_login('digite seu nome: ','digite sua senha: ')
+            if acesso != []:
+                cabecalho('Login realizado com sucesso!')
+                return acesso
+        elif opcao == 3:
+            cabecalho(menu_cadastro[2])
+            acesso = []
+            return acesso
+        else:
+            print('Digite um número dentre as opções acima!')

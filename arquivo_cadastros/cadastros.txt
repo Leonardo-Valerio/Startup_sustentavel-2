@@ -1,7 +1,0 @@
-joaozinho;joao1234;68928-184;Avenida Poeta Castro Alves;34
-fatima;123445;79044-015;Avenida José Vicente Pereira Netto;21
-armando;maradoninha;59104-305;Travessa Henrique Dias;23
-leo;leo12345;69902-876;Rua Abacaxi;840
-messi;antonieta;76828-654;Avenida Amazonas;21
-julia;juju123;79841-471;Rua Um;32
-janaina;j90ina;59067-500;Rua das Algarobas;12

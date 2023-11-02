@@ -1,0 +1,7 @@
+{
+    "plásticos descartáveis": ["sacolas de plástico", "garrafas de plástico", "canudos de plástico", "talheres de plástico", "copos descartáveis"],
+    "resíduos tóxicos": ["pontas de cigarro", "pilhas e baterias", "pesticidas e herbicidas", "tintas e solventes", "medicamentos vencidos"],
+    "resíduos eletrônicos": ["eletrônicos descartados", "lâmpadas fluorescentes", "cartuchos de tinta", "cabos e fios", "telefones celulares velhos"],
+    "produtos de higiene e saúde": ["fraldas descartáveis", "produtos de higiene pessoal", "absorventes descartáveis", "cotonetes de plástico", "desodorantes em spray"],
+    "materiais e embalagens": ["isopor", "embalagens de alimentos", "filtros de café", "tampas de plástico", "caixas de pizza sujas"]
+}

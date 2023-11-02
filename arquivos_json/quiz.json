@@ -1,0 +1,102 @@
+{
+  "Questão 1": {
+    "pergunta": "Qual é a fonte de energia mais limpa?",
+    "opções": [
+      "a) Carvão",
+      "b) Solar",
+      "c) Petróleo",
+      "d) Nuclear"
+    ],
+    "resposta_correta": "b"
+  },
+  "Questão 2": {
+    "pergunta": "Qual desses materiais leva mais tempo para se decompor na natureza?",
+    "opções": [
+      "a) Papel",
+      "b) Plástico",
+      "c) Metal",
+      "d) Vidro"
+    ],
+    "resposta_correta": "d"
+  },
+  "Questão 3": {
+    "pergunta": "Qual é o melhor método para descartar medicamentos vencidos?",
+    "opções": [
+      "a) Papel",
+      "b) Plástico",
+      "c) Metal",
+      "d) Vidro"
+    ],
+    "resposta_correta": "b"
+  },
+  "Questão 4": {
+    "pergunta": "Qual alternativa representa um método de agricultura sustentável?",
+    "opções": [
+      "a) Monocultura",
+      "b) Uso excessivo de pesticidas",
+      "c) Agricultura orgânica",
+      "d) Desmatamento"
+    ],
+    "resposta_correta": "c"
+  },
+  "Questão 5": {
+    "pergunta": "Qual é o gás de efeito estufa mais abundante na atmosfera?",
+    "opções": [
+      "a) Metano",
+      "b) Dióxido de Carbono",
+      "c) Ozônio",
+      "d) Dióxido de Enxofre"
+    ],
+    "resposta_correta": "b"
+  },
+  "Questão 6": {
+    "pergunta": "Que tipo de lâmpada é mais eficiente em termos de energia?",
+    "opções": [
+      "a) Incandescente",
+      "b) Halógena",
+      "c) Fluorescente",
+      "d) LED"
+    ],
+    "resposta_correta": "d"
+  },
+  "Questão 7": {
+    "pergunta": "Qual é a melhor opção para sacolas de compras?",
+    "opções": [
+      "a) Sacolas de plástico",
+      "b) Sacolas de pano",
+      "c) Sacolas de papel",
+      "d) Sacolas de couro"
+    ],
+    "resposta_correta": "b"
+  },
+  "Questão 8": {
+    "pergunta": "O que você deve fazer com eletrônicos descartados?",
+    "opções": [
+      "a) Jogar no lixo comum",
+      "b) Queimar",
+      "c) Doar ou reciclar",
+      "d) Enterrar"
+    ],
+    "resposta_correta": "c"
+  },
+  "Questão 9": {
+    "pergunta": "Qual é a melhor forma de economizar água em casa?",
+    "opções": [
+      "a) Tomar banhos mais curtos",
+      "b) Deixar a torneira aberta enquanto escova os dentes",
+      "c) Usar a descarga a cada uso do banheiro",
+      "d) Regar as plantas durante o dia"
+    ],
+    "resposta_correta": "a"
+  },
+  "Questão 10": {
+    "pergunta": "Qual é o impacto do desmatamento?",
+    "opções": [
+      "a) Aumenta a biodiversidade",
+      "b) Contribui para o aquecimento global",
+      "c) Melhora a qualidade do solo",
+      "d) Nenhum impacto"
+    ],
+    "resposta_correta": "b"
+  }
+}
