@@ -1,4 +1,5 @@
 
+
 import openai
 import dotenv
 import time
@@ -19,8 +20,10 @@ def validar_material_para_descarte(mat):
             material_valido = False
             for key, value in materiais.items():
                 cabecalho(key)
+                time.sleep(0.8)
                 for j in value:
                     print(j)
+                    time.sleep(0.3)
             linha()
             material = input(mat)
             for key, value in materiais.items():
@@ -131,8 +134,10 @@ def validar_opcoes_sustentaveis(mat):
             material_valido = False
             for key,values in opcoes_sustentaveis.items():
                 cabecalho(key)
+                time.sleep(0.8)
                 for k,v in values.items():
                     print(k)
+                    time.sleep(0.3)
             linha()
             material = input(mat).lower()
             for key,values in opcoes_sustentaveis.items():
@@ -164,6 +169,7 @@ def validar_atividade(atividade):
             atividade_encontrada = False
             linha()
             for i in lista_de_ativivades:
+                time.sleep(0.2)
                 print(i)
             linha()
             atividade_escolhida = input(atividade).lower()
@@ -274,9 +280,83 @@ def quiz():
                 cabecalho('ERRADA RESPOSTA')
 
         cabecalho(f'SUA NOTA FOI: {acertos}')
+        return acertos
 
 
 
+def validar_tentativas(nome):
+    liberar_usuario = False
+    try:
+        with open('./arquivo_cadastros/cadastros.json', 'r', encoding='utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except IOError as e:
+        print(f'ERRO: {e}')
+    else:
+        for usuario in dados:
+            if usuario["nome"] == nome:
+                if usuario["tentativas"] > 0:
+                    usuario["tentativas"] -= 1
+                    liberar_usuario = True
+                    with open('./arquivo_cadastros/cadastros.json', 'w', encoding='utf-8') as arquivo:
+                        json.dump(dados, arquivo, indent=4)
+                    return liberar_usuario
+        if not liberar_usuario:
+            cabecalho(f"POXA, SUAS TENTATIVAS ESTÃO ESGOTADAS :-(")
+            return liberar_usuario
+
+
+def realizar_recompensa(nome):
+    try:
+        with open('./arquivo_cadastros/cadastros.json', 'r',encoding='utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except IOError as e:
+        print(f'ERRO: {e}')
+    else:
+        for usuario in dados:
+            if usuario["nome"] == nome:
+                if usuario["recompensa"] < 1:
+                    usuario["recompensa"]+=1
+                print('confirme o seu endereço abaixo para te enviarmos ;-)')
+                linha()
+                print(f'CEP: {usuario["cep"]}')
+                linha()
+                print(f'Rua: {usuario["rua"]}')
+                linha()
+                print(f'Número da residência: {usuario["numero"]}')
+                linha()
+                continuar = validar_continuar('o endereço está correto? (s/n) ').lower()
+                if continuar == 'n':
+                    numero_casa = validar_int('Digite o número da sua casa: ')
+                    linha()
+                    novo_cep = encontrar_cep('digite o seu CEP (apenas números nesse campo): ', numero_casa)
+                    usuario["cep"] = novo_cep["cep"]
+                    usuario["rua"] = novo_cep["logradouro"]
+                    usuario["numero"] = novo_cep["numero"]
+                    try:
+                        with open('./arquivo_cadastros/cadastros.json', 'w', encoding='utf-8') as arquivo:
+                            json.dump(dados, arquivo, indent=4)
+                    except IOError as e:
+                        print(f'ERRO: {e}')
+                    else:
+                        cabecalho("ENDEREÇO ALTERADO COM SUCESSO")
+                        realizar_recompensa(nome)
+                else:
+                    time.sleep(1)
+                    cabecalho('SEU LIVRO SERÁ ENVIADO GRATUITAMENTE NOS PRÓXIMOS DIAS')
+                    return
+
+def validar_ja_se_ganhou(nome):
+    try:
+        with open('./arquivo_cadastros/cadastros.json', 'r',encoding='utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except IOError as e:
+        print(f'ERRO: {e}')
+    else:
+        for usuario in dados:
+            if usuario["nome"] == nome:
+                if usuario["recompensa"] > 0:
+                    return False
+        return True
 
 
 

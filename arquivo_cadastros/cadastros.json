@@ -2,18 +2,20 @@
     {
         "nome": "leo",
         "senha": "leo123456",
-        "cep": "36773-486",
-        "rua": "Rua Dona Maria Imaculada Pinheiro",
-        "numero": 840,
-        "tentativas": 3
+        "cep": "76914-754",
+        "rua": "Rua Ita\u00fana",
+        "numero": 717,
+        "tentativas": 1,
+        "recompensa": 0
     },
     {
         "nome": "gabriella",
         "senha": "gabi123",
-        "cep": "57072-125",
-        "rua": "Rua Projetada J",
-        "numero": 570,
-        "tentativas": 3
+        "cep": "22640-060",
+        "rua": "Avenida Grande Canal",
+        "numero": 33,
+        "tentativas": 0,
+        "recompensa": 0
     },
     {
         "nome": "adenor",
@@ -21,7 +23,8 @@
         "cep": "96083-050",
         "rua": "Rua Cidade de Barcelos",
         "numero": 32,
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
     },
     {
         "nome": "ana",
@@ -29,7 +32,8 @@
         "cep": "64009-125",
         "rua": "Rua Manoel Marques Furtado",
         "numero": 384,
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
     },
     {
         "nome": "leozinho",
@@ -37,7 +41,8 @@
         "cep": "59612-150",
         "rua": "Rua Luiz Ludugero",
         "numero": 670,
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
     },
     {
         "nome": "lucas",
@@ -45,7 +50,8 @@
         "cep": "65055-430",
         "rua": "Travessa da Pedreira",
         "numero": 3,
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
     },
     {
         "nome": "luiza",
@@ -53,14 +59,52 @@
         "cep": "35162-335",
         "rua": "Rua Mandacaru",
         "numero": 763,
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
     },
     {
         "nome": "andrea",
         "senha": "andreamoreira",
         "cep": "57606-070",
-        "rua": "Rua José Ferreira do Nascimento",
+        "rua": "Rua Jos\u00e9 Ferreira do Nascimento",
         "numero": 73,
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "luiz",
+        "senha": "123luiz",
+        "cep": "29163-392",
+        "rua": "Avenida Carapebus",
+        "numero": 52,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "joao",
+        "senha": "joao123",
+        "cep": "65072-870",
+        "rua": "Rua Ros\u00e1rio",
+        "numero": 34,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "mauro",
+        "senha": "maumau123",
+        "cep": "81590-500",
+        "rua": "Rua Nicodemus Zeglin",
+        "numero": 12,
+        "tentativas": 0,
+        "recompensa": 1
+    },
+    {
+        "nome": "lindaflor",
+        "senha": "lindaflor1234",
+        "cep": "64013-591",
+        "rua": "Quadra 138",
+        "numero": 32,
+        "tentativas": 2,
+        "recompensa": 1
     }
 ]

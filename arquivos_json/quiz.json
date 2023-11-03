@@ -20,14 +20,14 @@
     "resposta_correta": "d"
   },
   "Questão 3": {
-    "pergunta": "Qual é o melhor método para descartar medicamentos vencidos?",
+    "pergunta": "Como você pode identificar que um produto é reciclável?",
     "opções": [
-      "a) Papel",
-      "b) Plástico",
-      "c) Metal",
-      "d) Vidro"
+      "a) Vem em embalagem verde",
+      "b) Tem um preço mais reduzido",
+      "c) Possui o símbolo de reciclagem",
+      "d) Tem um preço mais elevado"
     ],
-    "resposta_correta": "b"
+    "resposta_correta": "c"
   },
   "Questão 4": {
     "pergunta": "Qual alternativa representa um método de agricultura sustentável?",

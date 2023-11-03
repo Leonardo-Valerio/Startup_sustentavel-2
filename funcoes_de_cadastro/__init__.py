@@ -32,7 +32,8 @@ def fazer_cadastro(nome, senha, cep):
         "cep": cep["cep"],
         "rua": cep["logradouro"],
         "numero": cep["numero"],
-        "tentativas": 3
+        "tentativas": 3,
+        "recompensa": 0
     }
 
     dados = []
@@ -118,6 +119,7 @@ def fazer_login(name,password):
 
 def cadastro(menu_cadastro):
     while True:
+        cabecalho('MENU')
         linha()
         exibir_menu(menu_cadastro)
         linha()
