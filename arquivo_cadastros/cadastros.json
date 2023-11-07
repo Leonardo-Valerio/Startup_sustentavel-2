@@ -106,5 +106,59 @@
         "numero": 32,
         "tentativas": 2,
         "recompensa": 1
+    },
+    {
+        "nome": "luara",
+        "senha": "lua123",
+        "cep": "03422-000",
+        "rua": "Avenida Guilherme Giorgi",
+        "numero": 21,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "andersson",
+        "senha": "daronco",
+        "cep": "05281-110",
+        "rua": "Rua Lima Barreto",
+        "numero": 45,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "lurdes",
+        "senha": "lurdes123",
+        "cep": "02258-260",
+        "rua": "Rua Major Vital Bandeira de Melo",
+        "numero": 3001,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "lula",
+        "senha": "kadrao",
+        "cep": "03407-045",
+        "rua": "Viela Manoel Gon\u00e7alez Alhilla",
+        "numero": 123,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "eduardo",
+        "senha": "dudu123",
+        "cep": "05892-350",
+        "rua": "Rua C\u00e9sar Bierrenbach",
+        "numero": 23,
+        "tentativas": 3,
+        "recompensa": 0
+    },
+    {
+        "nome": "jhony",
+        "senha": "jhonjhon",
+        "cep": "03361-010",
+        "rua": "Avenida Cipriano Rodrigues",
+        "numero": 210,
+        "tentativas": 2,
+        "recompensa": 0
     }
 ]

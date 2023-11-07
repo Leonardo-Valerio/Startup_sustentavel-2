@@ -36,10 +36,8 @@ def fazer_cadastro(nome, senha, cep):
         "recompensa": 0
     }
 
-    dados = []
-
     try:
-        if os.path.exists(nome_arquivo) and os.path.getsize(nome_arquivo) > 0:
+        if os.path.exists(nome_arquivo):
             with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
                 dados = json.load(arquivo)
 
@@ -72,7 +70,7 @@ def validar_user(nome):
                 if liberar_usuario:
                     return name
             else:
-                print('digite um nome válido, com pelo menos 5 dígitos, utilize apenas letras no nome! ')
+                print('digite um nome válido, com pelo menos 3 dígitos, utilize apenas letras no nome! ')
 
 def validar_senha(password):
     while True:
@@ -87,17 +85,20 @@ def validar_senha(password):
 
 def encontrar_cep(num_cep, num_casa):
     while True:
-        cep = validar_int(num_cep)
-        try:
-            respose = requests.get(f"https://viacep.com.br/ws/{str(cep)}/json/")
-            if respose.status_code == 200:
-                endereco = respose.json()
-                endereco['numero'] = num_casa
-                return endereco
-            else:
-                print('CEP inválido')
-        except Exception as e:
-            print(f'Ocorreu um erro: {e}')
+        cep = input(num_cep)
+        if len(cep) != 8:
+            print('digite um cep existente!')
+        else:
+            try:
+                respose = requests.get(f"https://viacep.com.br/ws/{cep}/json/")
+                if respose.status_code == 200:
+                    endereco = respose.json()
+                    endereco['numero'] = num_casa
+                    return endereco
+                else:
+                    print('CEP inválido')
+            except Exception as e:
+                print(f'Ocorreu um erro: {e}')
 
 
 def fazer_login(name,password):
@@ -112,7 +113,7 @@ def fazer_login(name,password):
             senha = input(password).lower()
             for i in dados:
                 if nome == i["nome"] and senha == i["senha"]:
-                    return [nome,senha]
+                    return {"nome": nome, "senha" : senha}
             print('Nome ou senha incorretos!')
             return []
 

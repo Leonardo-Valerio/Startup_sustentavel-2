@@ -6,6 +6,13 @@ import time
 import tiktoken
 from funcoes_de_cadastro import *
 
+def validar_continuar(msg):
+    while True:
+        continuar = input(msg)
+        if continuar in ['s','n']:
+            return continuar
+        print('responda entre (s ou n)!')
+
 #opção1
 def validar_material_para_descarte(mat):
     try:
@@ -54,7 +61,7 @@ def guia_descarte(prompt_user):
         formato de saída:
         para cada material, uma descrição breve  sobre como descartar cada um desses materiais de maneira correta
     """
-    tentaivas = 0
+    tentativas = 0
     tempo_exponencial = 5
     modelo = "gpt-3.5-turbo"
     codificador = tiktoken.encoding_for_model(modelo)
@@ -63,12 +70,12 @@ def guia_descarte(prompt_user):
     tamanho_esperado_saida = 2048
     if tokens > (4096 - tamanho_esperado_saida):
         modelo = "gpt-3.5-turbo-16k"
-    while tentaivas < 3:
+    while tentativas < 5:
         try:
             cabecalho('GERANDO RELATÓRIO ...')
-            tentaivas+=1
+            tentativas+=1
             response = openai.ChatCompletion.create(
-                model= modelo,
+                model=modelo,
                 messages=[
                     {
                         "role": "system",
@@ -112,16 +119,6 @@ def criar_arquivo(nome,conteudo,caminho):
     except IOError as e:
         print(f'Houve um erro: {e}')
 
-
-
-
-def validar_continuar(msg):
-    while True:
-        continuar = input(msg)
-        if continuar in ['s','n']:
-            return continuar
-        print('responda entre (s ou n)!')
-
 #opção2
 def validar_opcoes_sustentaveis(mat):
     try:
@@ -135,7 +132,7 @@ def validar_opcoes_sustentaveis(mat):
             for key,values in opcoes_sustentaveis.items():
                 cabecalho(key)
                 time.sleep(0.8)
-                for k,v in values.items():
+                for k in values.keys():
                     print(k)
                     time.sleep(0.3)
             linha()
@@ -148,7 +145,7 @@ def validar_opcoes_sustentaveis(mat):
                         for i in range(len(v)):
                             print(f'Opção {i+1} : {v[i]}')
                         linha()
-                        continuar = validar_continuar('deseja ver mais opções sobre um material? (s/n) ').lower()
+                        continuar = validar_continuar('deseja ver mais opções sobre alguma opção? (s/n) ').lower()
                         if continuar == 'n':
                             return linha()
             if not material_valido:
@@ -345,7 +342,7 @@ def realizar_recompensa(nome):
                     cabecalho('SEU LIVRO SERÁ ENVIADO GRATUITAMENTE NOS PRÓXIMOS DIAS')
                     return
 
-def validar_ja_se_ganhou(nome):
+def validar_se_ja_ganhou(nome):
     try:
         with open('./arquivo_cadastros/cadastros.json', 'r',encoding='utf-8') as arquivo:
             dados = json.load(arquivo)

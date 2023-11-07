@@ -9,7 +9,7 @@ acesso = cadastro(menu_cadastro)
 menu = ['GUIA DE DESCARTE DE LIXO','RECOMENDADOR DE PRODUTOS','GUIA DE ATIVIDADES SUSTENTÁVEIS', 'ECO QUIZ', 'SAIR']
 
 if acesso != []:
-    cabecalho(f'SEJA BEM VINDO {acesso[0].upper()}!')
+    cabecalho(f'SEJA BEM VINDO {acesso["nome"].upper()}!')
 else:
     cabecalho('SEJA BEM VINDO')
 while True:
@@ -23,7 +23,7 @@ while True:
             print(materiais)
             items_str = ', '.join(materiais)
             conteudo = guia_descarte(items_str)
-            criar_arquivo(acesso[0], conteudo,f'./arquivos_guia_descarte/guia_de_descarte_')
+            criar_arquivo(acesso["nome"], conteudo,f'./arquivos_guia_descarte/guia_de_descarte_')
 
         else:
             cabecalho('FAÇA SEU LOGIN PARA ACESSAR ESSA FUNÇIONALIDADE')
@@ -39,7 +39,7 @@ while True:
             print(tipos_de_atividades)
             atividades_str = ', '.join(tipos_de_atividades)
             conteudo = guia_de_atividades(atividades_str)
-            criar_arquivo(acesso[0],conteudo,f'./arquivos_guia_atividades/guia_de_atividades_')
+            criar_arquivo(acesso["nome"],conteudo,f'./arquivos_guia_atividades/guia_de_atividades_')
         else:
             cabecalho('FAÇA SEU LOGIN PARA ACESSAR ESSA FUNÇIONALIDADE')
             acesso = cadastro(menu_cadastro)
@@ -47,15 +47,15 @@ while True:
     elif opcao == 4:
         if acesso != []:
             cabecalho(menu[3])
-            permissao = validar_tentativas(acesso[0])
+            permissao = validar_tentativas(acesso["nome"])
             if permissao:
                 nota = quiz()
-                ganhou = validar_ja_se_ganhou(acesso[0])
+                ganhou = validar_se_ja_ganhou(acesso["nome"])
                 if ganhou:
                     if nota >= 7:
                         cabecalho('PARABÉNS VOCÊ GANHOU O NOSSO LIVRO "Sementes do Amanhã: Educando para Reciclar e Conservar"')
                         time.sleep(1)
-                        recompensa = realizar_recompensa(acesso[0])
+                        recompensa = realizar_recompensa(acesso["nome"])
                     else:
                         cabecalho('SUA NOTA FOI MENOR DO QUE 7, TENTE FAZER O QUIZ NOVAMENTE PARA CONSEGUIR SUA RECOMPENSA')
                 else:
