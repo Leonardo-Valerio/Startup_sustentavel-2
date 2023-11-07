@@ -2,41 +2,43 @@
 FUNÇÕES DE CADASTRO DA PASTA funcoes_de_cadastro:
 
 def linha():
-    uma função apenas para a estética de exibição que printa uma linha
+    uma função apenas para a estética de exibição que printa uma linha.
 
 def cabecalho():
     função para estética de exibição também que pega uma mensagem, centraliza no meio de duas linhas que são exibidas
-    em cima e embaixo
+    em cima e embaixo.
 
 def exibir_menu(lista):
-    uma função que recebe uma lista como parâmetro e exibi ela atráves de um for comum
+    uma função que recebe uma lista como parâmetro e exibi ela atráves de um for i in range(len(lista)):.
 
 def validar_int(n):
     nessa função o n é um parâmetro que vai ser um input que irei pedir para o úsuario digitar um número,
     através de um while True, tem um try que vai tentar ver se aquele número que o úsuario digitou, realmente é um número
-    se for, ele da um return do número inteiro, se não for ele perguntará novamente através do meu while True
+    se for, ele da um return do número inteiro, se não for ele perguntará novamente através do meu while True.
 
 def fazer_cadastro(nome, senha, cep):
     nessa função eu passo 3 parâmetros que já foram verificados como válidos em outras funções que mostrarei durante
     essa explicação, enfim, na funçao fazer_cadastro, eu declaro uma váriavel que vai ser o caminho do meu arquivo
     onde guardarei os cadastros dos úsuarios, e declaro uma váriavel que recebe um dicionário, tendo a chave "nome"
     recebendo o valor do parâmertro nome, chave senha recebendo o valor senha, chave cep, recebendo o valor cep["cep"],
-    já que nesse parâmetro o cep é um json, enfim, em seguida, através de um try, verifico se o arquivo existe realmente
-    pelo os que importei no começo do código, se ele existir, eu declaro a váriavel dados como json.load() que vai receber
-    tudo que tem dentro do meu json, e em seguida, apendo minha váriavel novo_usuario que recebeu o dicinário que passei
-    no começo do código, em seguida, abro o meu arquivo em modo de escrita e dou um json.dump(dados,arquivo), nesse caso
-    dados é escrito com o valor alterado já que dei um append nele, e arquvi é a rota, a estrutura do meu json vai ficar
-    como vários dicionários dentro de uma lista, essa função funcionará mesmo se a lista estivar vazia no meu arquivo,
-    ou se já estiver preenchida, pois ele irá ler o arquivo com o json.load e ir appendando.
+    já que nesse parâmetro o cep é um json, de claro também a chave tentativas recebendo um valor de 3 e a chave recompensa
+    recebendo um valor de 0, as chaves recompensa e tentativas vão ser úteis para funções do meu menu principal, enfim
+    , em seguida, através de um try, verifico se o arquivo existe realmente pelo "os" que importei no começo do código
+    , se ele existir, eu declaro a váriavel dados como json.load() que vai receber tudo que tem dentro do meu json, e em
+    seguida, appendo minha váriavel novo_usuario que recebeu o dicinário que passei no começo do código, em seguida, abro
+    o meu arquivo em modo de escrita e dou um json.dump(dados,arquivo), nesse caso dados é escrito com o valor alterado
+    já que dei um append nele, e arquivo é a rota, a estrutura do meu json vai ficar como vários dicionários dentro de
+    uma lista, essa função funcionará mesmo se a lista estiver vazia no meu arquivo, ou se já estiver preenchida, pois
+    ele irá ler o arquivo com o json.load e ir appendando.
 
 def validar_user(nome):
     aqui vou validar o user para o usuário digitar um nome válido, um nome válido é um nome que não existe no meu json,
-    que tenha só letras e que tenha um len de pelo menos 3 caracteres, para isso, já dou um try para abrir o meu arquivo
+    que tenha só letras e que tenha um len com pelo menos 3 caracteres, para isso, já dou um try para abrir o meu arquivo
     json que estão os cadastros das pessoas, e declaro que dados vai receber tudo que está nesse json com o json.load(),
     se der tudo certo para abrir o arquivo, ele irá para um while True, declarando uma váriavel libererar_usuario como
     True para eu ter o controle que o úsuario só saíra do meu while quando ele digitar um nome válido, então já declaro
-    a váriavel nome como um input de n que é um parâmetro que recebe uma str que é oque estarei pedindo para o usuário
-    digitar oque eu quero, para isso verifico se o nome é só alpha e se tem um len >=3 através de um if que se não for,
+    a váriavel name como um input de nome que é um parâmetro que recebe uma str que é oque estarei pedindo para o usuário
+    digitar oque eu quero, para isso verifico se o name é só alpha e se tem um len >=3 através de um if que se não for,
     printará um aviso e e pedirá novamente ja que está num while True, se passar da condição, ele entrará num
     for ususario in dados
         if usuario["nome"] == nome:
@@ -44,7 +46,7 @@ def validar_user(nome):
             liberar_usuario = False
             break
     isso é, para cada usuario em dados que é meu json, se o meu usuario com a chave nome for igual ao nome digitado pelo
-    usuário, ele dará erro, a váriavel liberar_usuario terá  um valor de false ,saio do for com o break e o loop se repetirá
+    usuário, ele dará erro, a váriavel liberar_usuario terá um valor de false ,saio do for com o break e o loop se repetirá
     , após o meu for se encerrar eu verifico com um if se liberar_usuario é true ou false, ou seja, se for true, é pq ele
     passou da primeira condição de ser alpha e ter um len ideal, e passou pelo for sem entrar na condição que verifica
     se o nome já existe, sendo assim True e retornando esse nome da função, se for False é porque ele caiu na condição
@@ -54,8 +56,8 @@ def validar_senha(password):
     essa função é mais simples do que a de cima pois não importa se a senha já existe em algum dicionário do meu json
     para ela ser válida, aqui eu válido ela se a senha for numerica , ou numerica com letrass, ou só letras, para isso
     utilizo um while True e declaro senha como input de password que será a mensagem que estarei pedindo para o usuário,
-    em seguida em um com um try tento ver se a senha tem um len maio do que 5 e se é alpha númerico com o .isalnum no if
-    , se for ele retornará a senha como válida da função, se não for o loop se repetirá
+    em seguida em um try tento ver se a senha tem um len maior do que 5 e se é alpha númerico com o .isalnum no if
+    , se for ele retornará a senha como válida da função, se não for o loop se repetirá.
 
 def encontrar_cep(num_cep, num_casa):
     essa função é para validar o cep que o usuário vai me passar, para isso o parâmetro num_cep é a mensagem que vou
@@ -65,11 +67,11 @@ def encontrar_cep(num_cep, num_casa):
     existe, com o request importado no meu código eu falo que response recebe request com o parâmetro da api, já com
     o cep que o usuário digitou nele, em seguida verifico com o if se o response.status == 200, se for, é por que
     a api me retornou um ok para que cep existe, então eu declaro que endereco recebe o json desse request, e adiciono
-    mais um item nesse json, com um endereco["numero"] = num_casa, aqui eu adiciona a chave numero no meu json que
+    mais um item nesse json, com um endereco["numero"] = num_casa, aqui eu adiciono a chave numero no meu json que
     recebe de valor o meu parâmetro num_casa, que é um parâmetro que eu já fiz a validação de que é um número realmente
     na hora eu que chamo essa função, validei com a minha função validar_int(n), após isso eu retorno endereco que
     vai ser o meu json completo de todas os items que a api me trouxe, como rua, cep,e etc e mais oque eu adicionei
-    que foi o número
+    que foi o número.
 
 def fazer_login(name,password):
     nessa função eu verifico se o nome que o usuário me passar para o login condiz com a senha que ele criou no cadastro
@@ -84,19 +86,21 @@ def fazer_login(name,password):
       return []
     isso é que i que vai representar cada dicionário na minha lista do json, então se o nome que o usuário me passou for
     igual a i da chave nome e a senha for igual a i da chave senha, ele vai retornar dessa função um dicionário que vai
-    ter a chave nome recebendo o nome do login e a chave senha recebendo a chave do login, agora caso o meu for termine
+    ter a chave nome recebendo o nome do login e a chave senha recebendo a senha do login, agora caso o meu for termine
     e não entre em nenhum momento na condição, significa que ou o nome ou a senha ou os dois que o usuário digitou estão
     incorretas, e minha função retornará uma lista vazia que vai ser útil no meu arquivo principal, o main.py, para eu
-    ver se o usuário conseguiu fazer o login ou não
+    ver se o usuário conseguiu fazer o login ou não, se ele conseguiu, ele terá acesso a mais funções do meu menu principal
+    já que necessita de login para acessar algumas funcionalidades, utilizo muito essa dicionárioda chave "nome" que retorna
+    do login para passar como parâmetros em funções do menu principal.
 
 def cadastro(menu_cadastro):
-    aqui é a função que eu chamo todas as outras a cima para validar tudo e passar para a minha função fazer cadastro()
+    aqui é a função que eu chamo todas as outras a cima para validar tudo e passar para a minha função fazer_cadastro()
     , para isso eu começo com um while True e utilizando a função exibir_menu(menu_cadastro), que vai receber a lista
     que eu estou passando no meu main.py para exibir, em seguida declaro que a váriavel opcao vai ser
     opcao = validar_int('Digite a opção que deseja: ') para o usuário me digitar um número da opção, se a opção for = 1
     será o cadastro, então eu crio minhas váriaveis nome que será validada pela função validar_user(), senha que vai ser
     validada pela função validar_senha() e cep que vai ser validada pela função encontrar_cep() e peço tudo para o usuário
-    após ele passar todas as informações e minhas funções validarem todas essas, daí eu passo o tudo como parâmetro para
+    após ele passar todas as informações e minhas funções validarem todas essas, daí eu passo tudo como parâmetro para
     a função fazer_cadastro(nome,senha,cep), assim realizando de fato o cadastro e adicionando no meu cadastros.json.
     Se o usuário digitar 2 na opcao, significa que ele quer fazer o login, então eu falo que
     acesso = fazer_login('digite seu nome: ','digite sua senha: '), sendo assim, acesso vai receber ou um dicionário com
@@ -104,6 +108,8 @@ def cadastro(menu_cadastro):
     em seguida retorno o acesso dessa função. Caso o usuário escolha a opção 3 do menu de cadastro, ele entrará sem login
     sendo assim eu declaro que acesso = [] e dou um return nele, caso ele entre sem login no sistema ele não conseguirá
     acessar todas as opções no meu menu principal pois eu verifico se o acesso é uma lista vazia ou se é um dict com nome e senha
+    se ele digitar uma opção inválida, vai cair no loop até digitar uma opção válida.
+
 ================================================================================================================================
 
 FUNÇÕES DE MENU DA PASTA: funcoes_do_menu:
@@ -111,12 +117,12 @@ FUNÇÕES DE MENU DA PASTA: funcoes_do_menu:
 def validar_continuar(msg):
     nessa função faço um while True, crio uma váriavel continuar que vai receber o input de msg, faço um if continuar
     estiver na lista ['s', 'n'] ele retornará o continuar, caso o contrário, o loop se repete, (nesse caso só vai dar um
-    return se continuar == 's' ou 'n'
+    return se continuar == 's' ou 'n').
 
 def validar_material_para_descarte(mat):
     aqui é uma função para validar materiais que passarei em uma outra função em seguida, para isso, tenho um arquivo json
     que é um dicionário com as chaves sendo um subtipo de materiais e cada uma recebendo um valor que é uma lista com algumas
-    opções de items relacionada a cada chave. Para validar isso faço um try para abrir o arquivo json, passando o caminho dele
+    opções de items relacionado a cada chave. Para validar isso, faço um try para abrir o arquivo json, passando o caminho dele
     em modo de leitura, crio a váriavel materiais que vai receber o json do arquivo, em seguida se ele conseguir abrir, no else
     eu crio uma váriavel lista_de_materiais que recebe uma lista vazia e depois faço um while True para liberar o usuário
     apenas na hora que ele digitar um material válido, para isso, declaro que a váriavel material_valido começara com um
@@ -134,7 +140,7 @@ def validar_material_para_descarte(mat):
     eles já que value é uma lista.
     Em seguida crio a váriavel material que recebe o input do meu parâmetro mat que é oque eu peço para o usuário, depois
     faço um for bem parecido mas dessa vez não para exibir os items e sim para validar se o material é igual a um item no json
-    , então no for j in value ao invés de printar o j, eu faço um if material == j: se entrar na condição eu faço um
+    , então no for j in value ao invés de printar o j, eu faço um if material == j:, se entrar na condição eu faço um
     if material not in lista_de_material: para ver se aquele material que o usuário digitou eu já não apendei na minha váriavel
     lista_de_material, se ele estiver na lista vai dar um break no for, se não estiver na lista, eu appendo esse material
     em lista_de_material, em seguida, ainda dentro da condição if material == j eu declaro que a váriavel material_valido = True
@@ -148,20 +154,20 @@ def validar_material_para_descarte(mat):
     será exibida essa mensagem de erro
 
 def guia_descarte(prompt_user):
-    nessa função eu utilizo a API do chat GPT para criar uam resposta personalizada para isso eu crio instalo e importo as
+    nessa função eu utilizo a API do chat GPT para criar uma resposta personalizada, para isso eu instalo e importo as
     bibliotecas openai, dotenv e tiktoken, começo dando um dotenv.load_dotenv() para carregar as váriaveis que estão no
-    meu arquivo .env, em seeguida dou um openai.api_key = os.getenv("OPENAI_API_KEY"), que vai buscar nesse arquivo o valor
+    meu arquivo .env, em seguida dou um openai.api_key = os.getenv("OPENAI_API_KEY"), que vai buscar nesse arquivo o valor
     de OPENAI_API_KEY que recebe a minha chave da api para poder trabalhar com ela, em seguida declaro a váriavel prompt_sistema
     que recebe um texto que é oque eu estou falando de como eu quero que o chat me responda, como ele deve ser e etc, em seguida
-    , crio a váriavel tentativas que recebe o valor de 0 , a váriavel tempo_exponencial que recebe 5, a váriavel modelo
-    que recebe "gpt-3.5-turbo", isso é necessário para evitar alguns erros que essa api pode me gerar, como erro de gerar
-    mais tokens do que o modelo suporta, tokens são gerados através do tamanho do texto que eu passo para a API e o texto
+    , crio a váriavel tentativas que recebe o valor de 0 , e a váriavel tempo_exponencial que recebe 5,e a váriavel modelo
+    que recebe "gpt-3.5-turbo", isso é necessário para evitar alguns erros que essa api pode me gerar, como o erro de gerar
+    mais tokens do que o modelo suporta, os tokens são gerados através do tamanho do texto que eu passo para a API e o texto
     que ela me gera como resposta, o modelo gpt-3.5-turbo suporta até 4096 tokens, então há um limite nos tamanhos dos
-    prompts que vou passar a cada 750 palavras na memória da conversa são 1000 tokens, no modelo gpt-3.5-turbo-16k o limite
+    prompts que vou passar já que a cada 750 palavras na memória da conversa são 1000 tokens, no modelo gpt-3.5-turbo-16k o limite
     é bem maior, porém não é ideal eu utilizar ele sempre pois ele gasta dos meus créditos consideravelmente mais, então
     para ter esse controle eu utilizo o codificador = tiktoken.encoding_for_model(modelo) que vai ser uma váriavel que
     conta quantos tokens tem em cada texto, em seguida crio lista_de_tokens = codificador.encode(prompt_sistema + prompt_user),
-    que nessa caso de fato ele vai receber de uma lista com vários número, cada número será um token, então para saber quantos
+    que nesse caso de fato ele vai receber de uma lista com vários número, cada número será um token, então para saber quantos
     tokens tem nos meus textos eu faço um tokens = len(lista_de_tokens) para saber a quantos tokens de fato foi gerado no
     prompt_sistema que é o texto que passo como quero que o chat se comporte e o prompt_usuario é o meu parâmetro que passo
      na função que é a lista de materiais que retorna da minha função validar_material_para_descarte(), em seguida declaro
@@ -211,16 +217,17 @@ def guia_descarte(prompt_user):
      chaves sistem para falar que aquilo é o comportamento que o chat deve ter, então passo o pompt_sistema no content, e system
      na chave role, e no outro objeto passo na chave role o valor user e na chave content o prompt_user que seria o que o usuário
      vai passar para ter algo como resposta, em seguida, ainda nos parâmetros de openai.ChatCompletion.create, passo valores
-     para controlar a resposta de saída, sendo deles o mais relevante o max_tokens que passo que a saída deve ter o tamanho
-     que espero para ela, para não ser uma resposta tão grande e dentro do limite que eu quero, em seguida, declaro que
+     para controlar a resposta de saída, sendo deles o mais relevante o max_tokens que passo que a saída não deve ter o tamanho
+     maior que espero para ela, para não ser uma resposta tão grande e dentro do limite que eu quero, em seguida, declaro que
      resposta é = response.choices[0].message.content para filtrar somente a resposta que ela me gerar e não o json completo
      , depois retorno resposta, agora se ele não conseguir fazer nada disso e cair em um
-     except openai.error.AuthenticationError as e: signifuca que há um erro de autenticação, podendo ser pela chave da api
+     except openai.error.AuthenticationError as e: significa que há um erro de autenticação, podendo ser pela chave da api
      ou alguma outra coisa como conexão de internet e etc, se cair no except openai.error.APIError as e: é um erro na chamada
      da api, dou um time.sleep de 5 segundos para fazer outra interação no loop, se cair no except openai.error.RateLimitError:
      significa que excedeu a quantidade de chamadas que a api perimite por minuto, então dou um time.sleep(tempo_exponencial)
      isso é, toda vez que meu loop começa tentativa é somada com 1, meu tempo_exponencial começa como 5 e conforme vai caindo
-     nesse except ele vai se multiplicando por 2, assim para previnir diversas disparadas de chamadas da API
+     nesse except ele vai se multiplicando por 2, assim para previnir diversas disparadas de chamadas da API sem respeitar
+     o limite de chamadas por minuto.
 
     def criar_arquivo(nome,conteudo,caminho):
         nessa função meus parâmetros são nome que vai ser o nome do usuário, conteudo, qua vai ser oque eu vou escrever
@@ -241,8 +248,8 @@ def guia_descarte(prompt_user):
             print(f'Houve um erro: {e}')
         que nesse caso o while trabalha enquanto o arquivo existir nome_arquivo = arq com o índice i que vai se somando 1
         , isso acontece até quando arquivo com o nome da váriavel nome_arquivo não existir, consigo ver se ele existe
-        , através da os que importei no código, quando sair desse while ele tentará criar o arquivo com o nome que resultar
-        da várial nome_arquivo, e irá escrever o conteudo que passei como parâmetro nessa função
+        , através da "os" que importei no código, quando sair desse while ele tentará criar o arquivo com o nome que resultar
+        da várial nome_arquivo, e irá escrever o conteudo que passei como parâmetro nessa função.
 
 def validar_opcoes_sustentaveis(mat):
     nessa função tento abrir o arquivo como leitura, declaro opcoes_sustentaveis como o json que está no meu arquivo,
@@ -253,14 +260,14 @@ def validar_opcoes_sustentaveis(mat):
     meu value será um dicionário, então faço um outro for k in values.keys(), como quero exibir somente as chaves desse
     dicionário que são os items eu só preciso acessar as chaves desse values que são os items, após exibir tudo isso,
     declaro a váriavel material como material = input(mat).lower() e faço um for só que dessa vez para comparar se oque
-    o usuário digitou está nas chaves do meu value e se estiver, exibo o valor dessa chave, que é uma lista, então faço
+    o usuário digitou está nas chaves do meu value, e se estiver, exibo o valor dessa chave, que é uma lista, então faço
     for key, value in opcoes_sustentaveis.items(), e em seguida um for k,v em values.items() sendo assim k vai ser meu item
     e v vai ser a lista que está as opções sustentáveis dele, então faço um if material == k: declaro que material_valido
-    é igual a True, e para exibir a sua lista de opções sustentáveis, falo um for i in in range(len(v)): e vou printando
-    os i e o v[i] que vai ser cada opção nessa lista, após o meu for acabar, pergunto se ele quer continuar, se ele quiser
+    é igual a True, e para exibir a sua lista de opções sustentáveis, faço um for i in in range(len(v)): e vou printando
+    os i e o v[i] que vai ser cada opção nessa lista, após o meu for acabar, pergunto se ele quer continuar, se não ele quiser
     eu dou um return, e se ele quiser eu verifico se material_valido é True ou False, se for True ele continua o loop e não
     exibe nenhum erro, e se for False significa que ele rodou o for inteiro e não entrou no if material == k, sendo assim
-    não exibindo as opções sustentáveis, e dando um print de erro, e voltando no loop
+    não exibindo as opções sustentáveis, e dando um print de erro, e voltando no loop.
 
 def validar_atividade(atividade):
     nessa função utilizei uma maneira um pouco diferente para ler arquivo, ao invés de pegar um arquivo json, coloquei as
@@ -277,51 +284,103 @@ def validar_atividade(atividade):
     a ideia com esses ifs é adicionar a atividade que o usuário quer receber um relátorio de como tornar aquela atividade
     mais sustentável, mas para não sobrecarregar a api do gpt e o usuário não digitar um monte de atividades, eu verifico
     se a minha váriavel lista_de_atividades_com_limite tem um len < 3 e que aquela atividade já não foi adicionada, dessa
-    forma o usuário por chamada da api pode no pedir para ela gerar um relatório de no máximo 3 atividades diferentes,
+    forma o usuário por chamada da api pode pedir para ela gerar um relatório de no máximo 3 atividades diferentes,
     caindo em todas essas condições eu appendo atividade_escolhida em lista_de_atividades_com_limite e pergunto se o
     usuário quer continuar, se ele não quiser eu retorno a lista_de_atividades_com_limite, se o else for do
     if i not in lista_de_atividades_com_limite, ele voltará o loop desde o começo, se o else for para o
     if len(lista_de_atividades_com_limite) <3, ele retornará lista_de_atividades_com_limite com o seu limite, se o usuário
     digitar 's' ou se não cair na primeira condição que é if i == atividade_escolhida: ele vai verificar se atividade_encontrada
-    é True ou False e fazer um print de erro se for false e se for True ele só repetirá o loop
+    é True ou False e fazer um print de erro se for false e se for True ele só repetirá o loop.
 
 def guia_de_atividades(prompt_user):
     aqui faço o mesmo procedimento no que fiz para o def guia_descarte(prompt_user):, a única mudança é que ao invés
     do parâmetro ser uma lista de materiais de descarte, é uma lista com no máximo 3 atividades diferentes, aqui vai
-    mudar também o prompt_sistema que para essa função o chat irá se comportar de outra maneira para fazer o relatório
+    mudar também o prompt_sistema que para essa função o chat irá se comportar de outra maneira para fazer o relatório.
 
 def validar_alternativa(letra):
     essa função vai retornar apenas a letra a ou b ou c ou d, para isso faço um while True, resposta = input(letra).lower()
-    e verifico se resposta está em uma lista que contenha [a,b,c,d], se estiver dou um return resposta, se não estiver, repete o loop
+    e verifico se resposta está em uma lista que contenha [a,b,c,d], se estiver dou um return resposta, se não estiver
+    , repete o loop.
 
 def quiz():
     nessa função eu tento abrir um arquivo json em modo de leitura, esse meu json é composto por um dicionário, que tem
-    as chaves questão numero x, o valor dela é um outro dicionário que de chaves tem a pergunta, opcoes e resposta_correta
+    as chaves "questão numero x", o valor dela é um outro dicionário que de chaves tem a "pergunta", "opcoes" e "resposta_correta"
     , o valor da chave pergunta é a própria pergunta que representa essa questão e o valor da chave opcoes é uma lista
-    com opcao a, b, c, d, e o valor da chave resposta_correta, é o valor que aquela questão tem então após abrir esse arquivo
-    e declarar a váriavel quiz_json = json.load(arquivo), no else do meu try, eu declaro acertos = 0 efaço um
-    for key, values in quiz_json.items, sendo assim values é um dicionário e a letra da resposta_correta,e printo key que
-    é a questão e values["pergunta"] que vai acessa o valor da chave perguntas no dicionário em seguida faço um
-    for opcao in values["opcoes"], e printo opcao, que acessa o valor de values da chave opcoes, que no caso é uma lista
-    , após exibir uma questão eu já faço um resposta_usuario = validar_alternativa('digite a alternativa correta: ')
+    com opcao a, b, c, d, e o valor da chave resposta_correta é o a letra que corresponde a essa questão, então após
+    abrir esse arquivo e declarar a váriavel quiz_json = json.load(arquivo), no else do meu try, eu declaro acertos = 0
+    e faço um for key, values in quiz_json.items, sendo assim values é um dicionário, em seguida, printo key que é a "questão x"
+    e printo values["pergunta"] que vai acessar o valor da chave perguntas no dicionário, em seguida faço um
+    for opcao in values["opcoes"], e printo opcao, que acessar o valor de values da chave opcoes, que no caso é uma lista
+    , após exibir uma questão com suas alternativas eu já faço um resposta_usuario = validar_alternativa('digite a alternativa correta: ')
     e comparo se resposta_usuario == ao values["resposta_correta"] que acessa o valor dessa key, se cair nessa condição
-    somo acerto com +=1 no final do meu for eu retorno a váriavel acertos que armazena quantas vezes caiu nesse
-    if resposta_usuario == values['resposta_correta']:
+    somo a váriavel acertos com +=1, quando acaba o meu for, eu retorno a váriavel acertos que armazena quantas vezes caiu nesse
+    if resposta_usuario == values['resposta_correta']:.
 
 def validar_tentativas(nome):
     a ideia dessa função é controlar se esse usuário ainda tem chances de realizar o quiz, tendo em vista que essa quantidade
     de tentativas está no meu cadastros.json e cada usuário tem as suas, no main.py eu utilizo essa função antes mesmo de
-    chamar a função quiz(), para validar eu preciso ler meu cadastros.json e verificar se aquele usuário ainda tem tentativas
+    chamar a função quiz(), para validar, eu preciso ler meu cadastros.json e verificar se aquele usuário ainda tem tentativas
     disponíveis, o nome do usuário é passado no parâmetro nome, e então começo declarando liberar_usuario = False, tento
-    abrir o arquivo em modo de leitura, e declaro dados = jsno.load(arquivo), no else do meu try, faço um for usuario in dados
+    abrir o arquivo em modo de leitura, e declaro dados = jsom.load(arquivo), no else do meu try, faço um for usuario in dados
     e faço uma condição, que se o nome do meu parâmetro == usuario["nome"], ou seja, verifico se o nome passado existe no
     meu cadastro.json, se existir, verifico se usuario["tentativas"] > 0: ou seja, vejo se ele ainda tem tentativas disponíveis
-    se ele tiver, faço um usuario["tentativas"] -= 1, para diminuir uma tentativa no cadastro dele, e declaro que libera_usuario
-    é igual a True, para salvar que o usuário perdeu uma tentativa tenho que reescrever no meu json, para isso abro o meu arquivo
-    em modo de escrita e passo json.dump(dados(que estão modificados agora), arquivo, ident=4) e retorno liberar_usuario como True
-    se meu for acabar e não entrar na condição do if usuario["tentativas"] > 0: significa que ele já não tem mais tentativas
-    e no meu if not liberar_usuario: eu retorno liberar_usuario como false
+    , se ele tiver, verifico se usuario["recompensa"] == 0, pois se ele já tiver a recompensa, eu não quero ter que diminuir as
+    tentativas dele, pois ele já ganhou o prêmio, então ele poderia acessar o quiz, já que eu quero, diminuir as tentativas de quem
+    ainda não conseguiu o prêmio, a ideia é ele ter até 3 chances para isso, agora se ele já conseguiu antes das 3 chances
+    acabar, não tem o porque de eu diminuir suas tentativas até 0 toda vez que ele quiser fazer o quiz de novo, ele só não
+    ganhará a recompensa novamente já que isso irei validar na função def validar_se_ja_ganhou(nome):, agora caso a condição
+    usuario["tentativas"] == 0 de verdadeiro, significa que ele ainda não ganhou a recompensa, então eu qeuro diminuir uma
+    tentativa dele, para isso, faço um usuario["tentativas"] -= 1, para diminuir uma tentativa no cadastro dele, e declaro
+    que libera_usuario é igual a True, para salvar que o usuário perdeu uma tentativa tenho que reescrever no meu json
+    , para isso abro o meu arquivo em modo de escrita e passo json.dump(dados(que estão modificados agora), arquivo, ident=4)
+    e retorno liberar_usuario como True se meu for acabar e não entrar na condição do if usuario["tentativas"] > 0: significa
+    que ele já não tem mais tentativas e no meu if not liberar_usuario: eu retorno liberar_usuario como false.
 
+def realizar_recompensa(nome):
+    a ideia nessa função é realizar a recompensa para o usuário, no meu main.py eu verifico se oque me retorna da função
+    def quiz(): (que são os acertos) é maior do que 7, se for, eu valido as tentativas para ver se o usuário ainda tem
+    tentativas disponíveis e válido também se ele já não ganhou por uma outra função que vou explicar abaixo, a chave
+    recompensa no meu cadastro.json é iniciado como 0 para todos os usuários quando realizam o cadastro, assim como tentativas
+    é iniciada como 3 para todos, aqui então eu começo tentando abrir o arquivo, e a váriavel dados recebendo o meu json
+    no else do meu try eu faço um for usuario in dados, e verifico se o usuario["nome"] é igual ao parâmetro nome que passo
+    na função, se for, é porque eu encontrei o usuário, faço então um outro if para ver se usuario["recompensa"] é menor
+    do que 1, ou seja, acesso a chave recompensa e se for 0, é porque o usuário ainda não ganhou a recompensa, então se
+    entrar na condição eu faço usuario["recompensa"]+=1, agora após essa condição, como na teoria a recompensa é um livro
+    e eu vou entregar para o usuário, eu vou exibindo os valores das minhas chaves cep, rua e numero para o usuário me
+    confirmar que está correto aquelas informações e que é para ser entregue nesse endereço mesmo, se ele falar que está
+    correto, eu dou um print e um return, agora se ele falar que não esta correto eu peço um novo numero da casa para ele
+    com minha função validar_int(), e na minha váriavel novo_cep, peço para ele digitar seu cep pela minha função
+    encontrar_cep(), passo como parâmetro o numero_casa que ele me digitou, e quando ele me retornar un cep válido da minha
+    função encontrar_cep(), daí eu digo que usuario["cep"] = novo_cep["cep"], usuario["rua"] = novo_cep["logradouro"]
+    , usuario["numero"] = novo_cep["numero"], agora como eu modifiquei minha váriavel dados que carrega meu json, eu tenho
+    que reescreve-lo, então eu faço um try, mas dessa vez abrir em modo de escrita, e dou um json.dump(dados, arquivo, indent=4)
+    que vai reescrever meu arquivo com o dados alterado, se der tudo certo isso, no meu else, eu dou um print que o endereço
+    foi alterado com sucesso e faço uma recursão dessa função def realizar_recompensa(nome): que só vai sair dela quando
+    usuário me confirmar que o endereço está correto, então se na minha primeira interação eu tenho o meu cep incorreto
+    , eu altero ele e a função vai exibir o mesmo que eu acabei de alterar e perguntar se dessa vez está realmente correto
+    até eu falar que está correto. Fiz dessa maneira pois como é um envio de um produto, preciso ter certeza que o endereço
+    do usuário está realmente correto sempre.
+
+
+def validar_se_ja_ganhou(nome):
+    nessa função eu vou validar se o usuário já ganhou ou não, pois se já ganhou a recompensa, eu não posso liberar que
+    ele ganhe o prêmio, posso até liberar ele fazer o quiz de novo, mas não posso liberar ele ganhar de fato a recompensa
+    mais de uma vez, para validar se ele já ganhou a recompensa eu faço um try para abrir o arquivo cadastros.json em
+    modo de leitura, e passo o json para a váriavel dados, no else do meu try, faço um for usuario in dados e comparo num
+    if se usuario["nome"] é igual ao meu parâmetro nome, se for significa que eu encontrei o usuário que está logado
+    , daí eu faço um outro if, dessa vez para ver se ele tem ou não a recompensa já, então se usuario["recompensa"] > 0:
+    significa que ele tem, então ele não poderia receber de novo, então eu retorno false, agora se rodar o meu for inteiro
+    e não entrar na condição significa que ele ainda não tem a recompensa e pode receber, para isso eu retorno True da
+    minha função. Então só para recapitular, no meu main.py, primeiro eu verifico se ele tem tentativas ou não pela função
+    def validar_tentativas(nome):, se ele não tiver eu não deixo ele acessar o quiz, se ele tiver eu deixo ele fazer o quiz
+    e verifico por essa função se ele já tem uma recompensa no cadastros.json, se ele já tiver ganho, eu apenas printo que ele
+    já ganhou, agora se ele ainda não tiver ganho aí sim que eu verifico se a nota que ele tirou no quiz é maior do que 7
+    se for menor, eu exibo apenas que ele não ganhou o prêmio e para ele tentar de novo, agora se for maior, daí sim que
+    eu printo que ele ganhou e chamo a função def realizar_recompensa(nome): que vai ter o papel de adicionar 1 na chave
+    recompensa no cadastro do usuário se ele não tiver recompensa ainda, se ele tiver, não irá adicionar nada na chave
+    , a função def realizar_recompensa(nome): também tem o papel de alterar endereço do usuário.
+
+=================================================================================================================================
 
 
 

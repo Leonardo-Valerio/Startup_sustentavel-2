@@ -1,3 +1,5 @@
+
+
 from funcoes_do_menu import *
 
 menu_cadastro = ['CADASTRAR','LOGIN','ENTRAR SEM LOGIN']
@@ -19,6 +21,11 @@ while True:
     if opcao == 1:
         if acesso != []:
             cabecalho(menu[0])
+            print('Nessa função será exibida uma lista de materiais que você vai poder escolher alguns deles para\n'
+            'gerarmos para você um relatório exclusivo feito por IA explicando como descartar esse material\n'
+            'de maneira correta')
+            linha()
+            time.sleep(3)
             materiais = validar_material_para_descarte('digite o material que deseja receber um tutorial do nosso guia: ')
             print(materiais)
             items_str = ', '.join(materiais)
@@ -31,10 +38,18 @@ while True:
 
     elif opcao == 2:
         cabecalho(menu[1])
+        print("Nessa função será exibida uma lista de materiais, que você poderá escolher um deles, que te\n"
+        "passaremos uma lista de opções sustentáveis que podem substituir esse material escolhido")
+        linha()
+        time.sleep(3)
         materiais = validar_opcoes_sustentaveis('digite o material que deseja saber seus possiveis substitutos sustentáveis: ')
     elif opcao == 3:
         if acesso != []:
             cabecalho(menu[2])
+            print('Nessa função será exibida uma lista de atividades que você poderá escolher até 3 delas\n'
+            'do seu interesse para te gerarmos um relatório exclusivo para você feito por IA, de como tornar\n'
+            'essas atividades mais sustentáveis e ecológicas')
+            linha()
             tipos_de_atividades = validar_atividade('Digite a atividade que deseja saber mais: ')
             print(tipos_de_atividades)
             atividades_str = ', '.join(tipos_de_atividades)
@@ -47,6 +62,11 @@ while True:
     elif opcao == 4:
         if acesso != []:
             cabecalho(menu[3])
+            print("Nessa função será exibido um quiz de sustentabilidade, onde você tem até 3 chances no máximo para\n"
+            "ganhar uma recompensa, o quiz são de 10 perguntas e você precisará tirar uma nota MAIOR do que 7 para\n"
+            "conseguir o prêmio.")
+            time.sleep(3)
+            linha()
             permissao = validar_tentativas(acesso["nome"])
             if permissao:
                 nota = quiz()

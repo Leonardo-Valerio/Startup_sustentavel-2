@@ -176,7 +176,7 @@ def validar_atividade(atividade):
                     if len(lista_de_atividades_com_limite) <3:
                         if i not in lista_de_atividades_com_limite:
                             lista_de_atividades_com_limite.append(atividade_escolhida)
-                            continuar = validar_continuar('deseja ver mais opções sobre um material? (s/n) ').lower()
+                            continuar = validar_continuar('deseja ver mais atividades? (s/n) ').lower()
                             if continuar == 'n':
                                 return lista_de_atividades_com_limite
                         else:
@@ -292,8 +292,9 @@ def validar_tentativas(nome):
         for usuario in dados:
             if usuario["nome"] == nome:
                 if usuario["tentativas"] > 0:
-                    usuario["tentativas"] -= 1
                     liberar_usuario = True
+                    if usuario["recompensa"] == 0:
+                        usuario["tentativas"] -= 1
                     with open('./arquivo_cadastros/cadastros.json', 'w', encoding='utf-8') as arquivo:
                         json.dump(dados, arquivo, indent=4)
                     return liberar_usuario

@@ -14,7 +14,7 @@
         "cep": "22640-060",
         "rua": "Avenida Grande Canal",
         "numero": 33,
-        "tentativas": 0,
+        "tentativas": 3,
         "recompensa": 0
     },
     {
@@ -119,29 +119,20 @@
     {
         "nome": "andersson",
         "senha": "daronco",
-        "cep": "05281-110",
-        "rua": "Rua Lima Barreto",
-        "numero": 45,
-        "tentativas": 3,
-        "recompensa": 0
+        "cep": "76877-008",
+        "rua": "Rua Raimundo Catanhede",
+        "numero": 309,
+        "tentativas": 2,
+        "recompensa": 1
     },
     {
         "nome": "lurdes",
         "senha": "lurdes123",
-        "cep": "02258-260",
-        "rua": "Rua Major Vital Bandeira de Melo",
-        "numero": 3001,
-        "tentativas": 3,
-        "recompensa": 0
-    },
-    {
-        "nome": "lula",
-        "senha": "kadrao",
-        "cep": "03407-045",
-        "rua": "Viela Manoel Gon\u00e7alez Alhilla",
-        "numero": 123,
-        "tentativas": 3,
-        "recompensa": 0
+        "cep": "69093-754",
+        "rua": "Rua Professor Alberto Carneiro",
+        "numero": 872,
+        "tentativas": 2,
+        "recompensa": 1
     },
     {
         "nome": "eduardo",
@@ -149,8 +140,8 @@
         "cep": "05892-350",
         "rua": "Rua C\u00e9sar Bierrenbach",
         "numero": 23,
-        "tentativas": 3,
-        "recompensa": 0
+        "tentativas": 1,
+        "recompensa": 1
     },
     {
         "nome": "jhony",
